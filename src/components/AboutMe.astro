@@ -1,4 +1,7 @@
 ---
+import SocialPill from "../components/SocialPill.astro";
+import Download from "../components/icons/iconsTools/Download.astro";
+
 const personalImageAlt = "César Urroz";
 ---
 
@@ -18,14 +21,22 @@ const personalImageAlt = "César Urroz";
     <p>
       Algunos de mis éxitos <strong>se encuentran en este portafolio.</strong>.
     </p>
+
+    <SocialPill
+      download="cv-ing-cesar-urroz"
+      href="public/resource/cv-ing-cesar-urroz.pdf"
+    >
+      <Download class="size-6 dark:fill-white fill-slate-700" />
+      Descargar CV
+    </SocialPill>
   </div>
 
   <img
     width="200"
     height="200"
-    src="https://i.ibb.co/vkMsX1x/image.png"
+    src="https://i.ibb.co/BVVV9v2/photo-5125221110844075488-y.jpg"
     alt={personalImageAlt}
     class="order-1 object-cover w-64 h-full p-1 bg-white md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl dark:bg-yellow-500/5 ring-1 ring-white/20"
-    style="object-position: 50% 50%"
+    style="object-position: top center"
   />
 </article>
