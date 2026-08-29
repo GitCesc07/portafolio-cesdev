@@ -1,0 +1,44 @@
+---
+import SocialPill from "../components/SocialPill.astro";
+import Download from "../components/icons/iconsTools/Download.astro";
+
+const personalImageAlt = "César Urroz";
+---
+
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row mb-8"
+>
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-sky-600 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      Me llamo <strong>César Urroz</strong>. Empecé en el bello mundo de la
+      programación en la <strong>universidad</strong>, tenía 20 años. <strong
+        >Fue el inicio de lo que ahora es mi hobby, mi pasión.</strong
+      >
+    </p>
+
+    <p>
+      Algunos de mis proyectos <strong
+        >se encuentran en este portafolio...</strong
+      >
+    </p>
+
+    <SocialPill
+      download="César-Urroz.pdf"
+      href="resource/cv-ing-cesar-urroz.pdf"
+    >
+      <Download class="size-6 dark:fill-white fill-slate-700" />
+      Descargar CV
+    </SocialPill>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src="https://i.ibb.co/BVVV9v2/photo-5125221110844075488-y.jpg"
+    alt={personalImageAlt}
+    class="order-1 object-cover w-64 h-full p-1 bg-gray-400 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl dark:bg-yellow-500/5 ring-1 ring-white/20"
+    style="object-position: top center"
+  />
+</article>

@@ -1,0 +1,53 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCIE = [
+  {
+    date: "Agosto 2026",
+    title: "Creación de página web",
+    company: "Bio Natural Salud",
+    description:
+      "Desarrollé la página web para Bio Natural Salud, creando una experiencia digital intuitiva para posicionar su oferta de medicina integrativa y terapias complementarias.",
+    link: "http://www.bionaturalsalud.clinic",
+  },
+  {
+    date: "Diciembre 2025",
+    title: "Creación de sistema web",
+    company: "Distribuidora MAJO",
+    description:
+      "Desarrollé e implementé un sistema de información contable personalizado para un cliente del sector ferretero, automatizando el control de inventarios, facturación y la emisión de reportes financieros.",
+  },
+  {
+    date: "Abril 2025",
+    title: "Creación de Página web",
+    company: "Full505",
+    description:
+      "Desarrollé la página web, para una empresa importadora y comercializadora de productos.",
+    link: "http://www.full505.com",
+  },
+  {
+    date: "Enero 2024",
+    title: "Creación de Página web",
+    company: "Distrifull",
+    description:
+      "Desarrollé la página web, para una empresa importadora y comercializadora de productos.",
+    link: "http://www.distrifull.com",
+  },
+  {
+    date: "Octubre 2023",
+    title: "Sistema de Farmacia",
+    company: "Sos medical",
+    description:
+      "Creación de un software de escritorio para farmacia, control de inventario, ventas, compras etc...",
+  },
+];
+---
+
+<ol class="relative mt-8">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

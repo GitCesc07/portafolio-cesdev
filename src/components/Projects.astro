@@ -1,0 +1,150 @@
+---
+import Link from "../components/icons/iconsTools/Link.astro";
+import GitHub from "../components/icons/iconsSocials/GitHub.astro";
+import NextJS from "../components/icons/iconsPrograms/Next.astro";
+import Html from "../components/icons/iconsPrograms/Html.astro";
+import Tailwind from "../components/icons/iconsPrograms/Tailwind.astro";
+import JavaScript from "../components/icons/iconsPrograms/JavaScript.astro";
+import Css from "../components/icons/iconsPrograms/Css.astro";
+import React from "../components/icons/iconsPrograms/React.astro";
+import LinkButton from "./LinkButton.astro";
+import Mysql from "../components/icons/iconsPrograms/Mysql.astro";
+import Sql from "../components/icons/iconsPrograms/Sql.astro";
+import TypeScript from "./icons/iconsPrograms/TypeScript.astro";
+import AstroIcon from "./icons/iconsPrograms/AstroIcon.astro";
+import Testimony from "./icons/iconsTools/Testimony.astro";
+import Verify from "./icons/iconsSocials/Verify.astro";
+import { PROJECTS } from "./const/data-site";
+
+const ICONS_COMPONENTS: Record<string, any> = {
+  html: Html,
+  css: Css,
+  javascript: JavaScript,
+  typescript: TypeScript,
+  tailwindcss: Tailwind,
+  astroIcon: AstroIcon,
+  react: React,
+  next_js: NextJS,
+  mysql: Mysql,
+  sql: Sql,
+};
+---
+
+<div class="grid md:grid-cols-2 2xl:grid-cols-3 grid-cols-1 gap-8">
+  {
+    PROJECTS.map(
+      ({
+        image,
+        title,
+        description,
+        tags,
+        link,
+        github,
+        isTagsBackendAndFrontend,
+        projectTags,
+        experienceCustomers,
+      }) => (
+        <article class="flex bg-slate-300/35 dark:bg-slate-700/35 p-4 rounded-lg flex-col group items-center shadow-2xl hover:scale-105 transition duration-300">
+          <div class="w-full">
+            <div class="relative flex flex-col items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-t-lg md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+              <img
+                loading="lazy"
+                alt="Recién llegado vs 5 años en Nueva Zelanda"
+                class="object-cover object-top h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                loading="lazy"
+                src={image}
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col items-start justify-center w-full">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mt-4">
+              {title}
+            </h3>
+            {isTagsBackendAndFrontend == false ? (
+              <div class="flex flex-wrap mt-4">
+                <ul class="flex flex-row mb-2 gap-x-2">
+                  {tags?.map((tag) => {
+                    const TagIcon = ICONS_COMPONENTS[tag.icon];
+                    return (
+                      <li>
+                        <span
+                          class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                        >
+                          <TagIcon class="size-4" />
+                          {tag.name}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ) : (
+              <div class="flex flex-wrap mt-4">
+                <ul class="flex flex-row mb-2 gap-x-2">
+                  {projectTags?.tags.map((tag) => {
+                    const TagIcon = ICONS_COMPONENTS[tag.icon];
+                    return (
+                      <li>
+                        <span
+                          class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                        >
+                          <TagIcon class="size-4" />
+                          {tag.name}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+            <div class="text-gray-700 dark:text-gray-400 my-2">
+              {description}
+            </div>
+
+            <div class="w-full">
+              <div class="w-full flex items-center justify-center gap-x-2">
+                <Testimony class="size-4" />
+                <h3 class="w-full">Reseña del cliente:</h3>
+              </div>
+              <blockquote class="italic">
+                <p class="text-sm">{experienceCustomers?.review}</p>
+
+                <footer class="blok my-3 not-italic">
+                  <h3>{experienceCustomers?.name_customer}</h3>
+                  <p>{experienceCustomers?.workstation}</p>
+                  <div class="flex items-center justify-start w-full">
+                    <cite class="font-bold">
+                      {experienceCustomers?.company}
+                    </cite>
+                    <div
+                      title="Cliente verificado"
+                      aria-label="Cliente verificado"
+                    >
+                      <Verify class="size-8" />
+                    </div>
+                  </div>
+                </footer>
+              </blockquote>
+            </div>
+
+            <div class="flex flex-col items-center mt-4 gap-4 w-full">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-6" />
+                  Ver sitio web
+                </LinkButton>
+              )}
+            </div>
+          </div>
+        </article>
+      ),
+    )
+  }
+</div>
