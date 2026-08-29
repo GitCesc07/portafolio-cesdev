@@ -30,7 +30,7 @@ const ICONS_COMPONENTS: Record<string, any> = {
 };
 ---
 
-<div class="grid md:grid-cols-2 2xl:grid-cols-3 grid-cols-1 gap-8">
+<div class="grid lg:grid-cols-2 2xl:grid-cols-3 grid-cols-1 gap-8">
   {
     PROJECTS.map(
       ({
@@ -46,11 +46,11 @@ const ICONS_COMPONENTS: Record<string, any> = {
       }) => (
         <article class="flex bg-slate-300/35 dark:bg-slate-700/35 p-4 rounded-lg flex-col group items-center shadow-2xl hover:scale-105 transition duration-300">
           <div class="w-full">
-            <div class="relative flex flex-col items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-t-lg md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <div class="relative w-full flex flex-col items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-t-lg md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
               <img
                 loading="lazy"
                 alt="Recién llegado vs 5 años en Nueva Zelanda"
-                class="object-cover object-top h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                class="object-fill object-top w-full lg:h-56 transition duration-500 md:scale-110 md:group-hover:scale-105"
                 loading="lazy"
                 src={image}
               />

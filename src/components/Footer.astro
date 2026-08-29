@@ -1,5 +1,9 @@
 ---
+import { undefined } from "astro:schema";
+
 const currentYear = new Date().getFullYear();
+const apiUrlLocal = import.meta.env.local.PUBLIC_API_URL;
+const apiUrlProduction = import.meta.env.PUBLIC_API_URL;
 ---
 
 <footer
@@ -10,7 +14,21 @@ const currentYear = new Date().getFullYear();
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
       >© {currentYear}
-      <a href="#experiencia" class="hover:underline">CescDev</a>.
+      {
+        apiUrlLocal != "" || apiUrlLocal != null || apiUrlLocal != undefined ?
+        (
+          <a href={apiUrlLocal} class="hover:underline">CescDev.</a>
+        )
+        :
+        apiUrlProduction != "" || apiUrlProduction != null || apiUrlProduction != undefined ?
+        (
+          <a href={apiUrlProduction} class="hover:underline">CescDev.</a>
+        )
+        :
+        null
+      }
+      Casi todos los derechos
+      reservados.
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
